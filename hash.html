@@ -22,6 +22,7 @@
             {
                 count = count + myText.charCodeAt(i);
             }
+            count = count + Math.sqrt(count);
             var hash = (Math.sin(count*45)+1)/2 * 10000000000000000;
             hash = Math.floor(hash);
             document.getElementById('myRezultat').value = hash;
