@@ -15,17 +15,28 @@
         function Calc()
         {
             var myText = document.getElementById('myId').value;
-            
-            var count = 0.0;
+            if(myText.length == 0) return;
 
-            for(var i = 0; i < myText.length; i++)
+            var count = 1.0;
+
+            if(myText.length > 1)
             {
-                count = count + myText.charCodeAt(i);
+                for(var i = 1; i < myText.length; i++)
+                {
+                    var charCodeCur = myText.charCodeAt(i);
+                    var charCodePrew = myText.charCodeAt(i-1);
+
+                    count = count + charCodeCur + (charCodeCur - charCodePrew);
+                }
+            }
+            else
+            {
+                count = myText.charCodeAt(0);
             }
             count = count + Math.sqrt(count);
             var hash = (Math.sin(count*45)+1)/2 * 10000000000000000;
             hash = Math.floor(hash);
-            document.getElementById('myRezultat').value = hash;
+            document.getElementById('myRezultat').value = hash.toString(16);
         }
     </script>
 </html>
