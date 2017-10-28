@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=windows-1251">
+    </head>
+    <body>
+        <textarea id="myId"></textarea>
+        <br>
+        <button onclick="Calc();">Посчитать хеш</button>
+        <br><br>
+        Это наш хеш<br>
+        <input type="text" id="myRezultat"/>
+    </body>
+    
+    <script>
+        function Calc()
+        {
+            var myText = document.getElementById('myId').value;
+            
+            var count = 0.0;
+
+            for(var i = 0; i < myText.length; i++)
+            {
+                count = count + myText.charCodeAt(i);
+            }
+            var hash = (Math.sin(count*45)+1)/2 * 10000000000000000;
+            hash = Math.floor(hash);
+            document.getElementById('myRezultat').value = hash;
+        }
+    </script>
+</html>
